@@ -1,0 +1,56 @@
+.App {
+  /* text-align: center; */
+}
+
+.header{margin: 1em 0}
+.card{margin-bottom: 1em}
+
+.user-avatar{
+  width: 60px;
+  height: 60px;
+  border:1px solid #fff;
+  float: left;
+  margin-right: 10px;
+  border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
+}
+
+.schedule-container{
+  padding:0 10px;
+}
+.schedule-container > div{
+  padding-right: 2px !important;
+  padding-left: 0 !important;
+  margin-top:20px;
+}
+
+.schedule-container .active{
+  border: 2px solid #cc0000;
+}
+
+.schedule-container h5{
+  text-align:center
+}
+
+.schedule-container .card-title,
+.schedule-container .card-subtitle{
+  position: absolute;
+  font-size: 20px
+}
+
+.schedule-container .card-title{
+  top: 5px;
+  left: 10px;
+}
+
+.schedule-container .card-subtitle{
+  top: -10px;
+  left: 0px;
+}
+
+.schedule-container ul {
+  list-style-type: none;
+  padding-left: 1em;
+  margin-top: 1.5em;
+}
