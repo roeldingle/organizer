@@ -5,6 +5,8 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
 
+import AddTaskModalComp from './AddTaskModalComp';
+
 class ScheduleComp extends Component {
 
   constructor(props) {
@@ -12,15 +14,27 @@ class ScheduleComp extends Component {
     const weekdays = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri'];
     this.state = {
       weekdays,
-      modal: false
+      modal: {
+        toggle: false
+      },
+      data: []
     };
 
-    this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggleModal.bind(this);
   }
 
-  toggle() {
+  clickAddTask = () => {
     this.setState({
-      modal: !this.state.modal
+      modal: {
+        toggle: !this.state.modal.toggle,
+        title: 'Add Task'
+      }
+    });
+  }
+
+  toggleModal(modal) {
+    this.setState({
+      modal: !modal
     });
   }
 
@@ -35,16 +49,14 @@ class ScheduleComp extends Component {
         <CardBody>
           <CardTitle>
             Schedule
-            <Button style={{float: 'right'}} color="primary" outline>
+            <Button onClick={this.clickAddTask} style={{float: 'right'}} color="primary" outline>
               Add Task
             </Button>
           </CardTitle>
 
 
             <div className="row schedule-container">
-
                 {
-
                   this.state.weekdays.map((weekday, key) => {
                       return <div className="col">
                         <h5>{weekday}</h5>
@@ -53,22 +65,22 @@ class ScheduleComp extends Component {
                             <CardTitle>31</CardTitle>
                             <ul>
                               <li>
-                                <a href="#" onClick={this.toggle}>
+                                <a href="#" onClick={this.toggleModal}>
                                   Hunter monthly support
                                 </a>
                               </li>
                               <li>
-                                <a href="#" onClick={this.toggle}>
+                                <a href="#" onClick={this.toggleModal}>
                                   Level 10 meeting
                                 </a>
                               </li>
                               <li>
-                                <a href="#" onClick={this.toggle}>
+                                <a href="#" onClick={this.toggleModal}>
                                   Hunter monthly support
                                 </a>
                               </li>
                               <li>
-                                <a href="#" onClick={this.toggle}>
+                                <a href="#" onClick={this.toggleModal}>
                                   Level 10 meeting
                                 </a>
                               </li>
@@ -82,19 +94,8 @@ class ScheduleComp extends Component {
         </CardBody>
       </Card>
 
+      <AddTaskModalComp data={this.state} toggleModal={this.toggleModal.bind(this)}/>
 
-        <div>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-            <ModalBody>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-              <Button color="secondary" onClick={this.toggle}>Cancel</Button>
-            </ModalFooter>
-          </Modal>
-        </div>
 
       </div>
     );
