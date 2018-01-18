@@ -54,3 +54,49 @@
   padding-left: 1em;
   margin-top: 1.5em;
 }
+
+/**********slides*******/
+.section-container{
+  height:32em;
+  overflow: hidden;
+}
+
+.section-container >div.card {
+  min-height:32em;
+}
+
+.section-container .card-text{
+  margin: 2em 2em 0;
+  font-size: 20px;
+}
+
+.section-container .card-text small{
+  text-align: center;
+  font-size: 60%;
+}
+
+.welcome .card-text{margin-top: 0;}
+.welcome > div{
+  text-align:center;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.welcome h2{
+  font-size: 4em;
+}
+
+.agenda ul{
+  list-style: none;
+  margin-left: 2em;
+}
+
+.goodnews .form-group{
+  width: 80%;
+  margin: 20px auto;
+}
+
+.team-rocks .card-text{
+  font-size: 16px;
+}
